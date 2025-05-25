@@ -1,0 +1,6 @@
+artifact_location: file:///workspaces/mlops/02-week/mlruns/800200052064851381
+creation_time: 1748162787290
+experiment_id: '800200052064851381'
+last_update_time: 1748162787290
+lifecycle_stage: active
+name: taxi_model_experiment

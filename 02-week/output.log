@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/workspaces/mlops/02-week/homework2/hpo.py", line 4, in <module>
+    import mlflow
+  File "/workspaces/mlops/mlflow-env/lib/python3.9/site-packages/mlflow/__init__.py", line 43, in <module>
+    from mlflow import (
+  File "/workspaces/mlops/mlflow-env/lib/python3.9/site-packages/mlflow/artifacts/__init__.py", line 12, in <module>
+    from mlflow.tracking import _get_store
+  File "/workspaces/mlops/mlflow-env/lib/python3.9/site-packages/mlflow/tracking/__init__.py", line 8, in <module>
+    from mlflow.tracking._model_registry.utils import (
+  File "/workspaces/mlops/mlflow-env/lib/python3.9/site-packages/mlflow/tracking/_model_registry/utils.py", line 4, in <module>
+    from mlflow.store.db.db_types import DATABASE_ENGINES
+  File "/workspaces/mlops/mlflow-env/lib/python3.9/site-packages/mlflow/store/__init__.py", line 1, in <module>
+    from mlflow.store import _unity_catalog  # noqa: F401
+  File "/workspaces/mlops/mlflow-env/lib/python3.9/site-packages/mlflow/store/_unity_catalog/__init__.py", line 1, in <module>
+    from mlflow.store._unity_catalog import registry  # noqa: F401
+  File "/workspaces/mlops/mlflow-env/lib/python3.9/site-packages/mlflow/store/_unity_catalog/registry/__init__.py", line 1, in <module>
+    from mlflow.store._unity_catalog.registry import rest_store, uc_oss_rest_store  # noqa: F401
+  File "/workspaces/mlops/mlflow-env/lib/python3.9/site-packages/mlflow/store/_unity_catalog/registry/rest_store.py", line 74, in <module>
+    from mlflow.store.entities.paged_list import PagedList
+  File "/workspaces/mlops/mlflow-env/lib/python3.9/site-packages/mlflow/store/entities/__init__.py", line 1, in <module>
+    from mlflow.store.entities.paged_list import PagedList
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 982, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 925, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1423, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1395, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1526, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1569, in _fill_cache
+KeyboardInterrupt

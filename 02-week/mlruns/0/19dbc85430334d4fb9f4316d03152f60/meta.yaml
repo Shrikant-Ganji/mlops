@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/mlops/02-week/mlruns/0/19dbc85430334d4fb9f4316d03152f60/artifacts
+end_time: 1748162410098
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 19dbc85430334d4fb9f4316d03152f60
+run_name: useful-mole-191
+run_uuid: 19dbc85430334d4fb9f4316d03152f60
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748162392766
+status: 4
+tags: []
+user_id: codespace

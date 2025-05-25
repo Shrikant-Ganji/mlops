@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/mlops/02-week/mlruns/800200052064851381/5834d1462c0148b6932e1433d8d94624/artifacts
+end_time: 1748162804829
+entry_point_name: ''
+experiment_id: '800200052064851381'
+lifecycle_stage: active
+run_id: 5834d1462c0148b6932e1433d8d94624
+run_name: industrious-cow-375
+run_uuid: 5834d1462c0148b6932e1433d8d94624
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748162787687
+status: 3
+tags: []
+user_id: codespace
