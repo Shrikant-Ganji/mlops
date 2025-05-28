@@ -4,8 +4,6 @@ Welcome to the Introduction module of the **MLOps Zoomcamp 2025** by [Shrikant-G
 
 This week sets the foundation for your journey into Machine Learning Operations (MLOps). You’ll become familiar with the course structure, prepare your development environment, and gain an understanding of key MLOps concepts and their significance in real-world projects.
 
-![MLOps Zoomcamp Banner](../images/banner-2025.jpg)
-
 ---
 
 ## Table of Contents
@@ -161,8 +159,6 @@ pip install pyarrow
 
 *Advantages:* Parquet files are compressed and efficient for analytics.
 
-Model training is demonstrated in [this Jupyter notebook](notebooks/duration-prediction.ipynb).
-
 ---
 
 ## 4. Course Overview
@@ -224,8 +220,4 @@ Homework for this module is available [here](homework1).
 
 Contributions are welcome! If you notice any issues or wish to add content, please open an issue or submit a pull request.
 
----
-
 If you’d like to see additional sections or request further customization, please let me know!
-
----
