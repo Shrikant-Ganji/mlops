@@ -1,64 +1,218 @@
-Thanks for sharing the reference README from maxim-eyengue’s repo. I’ll use its structure and style to create a README.md for your 01-intra directory. Here’s a tailored version for your context:
+# 🚀 MLOps Zoomcamp 2025 – Week 1: Introduction
+
+Welcome to the Introduction module of the **MLOps Zoomcamp 2025** by [Shrikant-Ganji](https://github.com/Shrikant-Ganji/mlops-zoomcamp-2025)!
+
+This week sets the foundation for your journey into Machine Learning Operations (MLOps). You’ll become familiar with the course structure, prepare your development environment, and gain an understanding of key MLOps concepts and their significance in real-world projects.
+
+![MLOps Zoomcamp Banner](../images/banner-2025.jpg)
 
 ---
 
-# 01-intra
+## Table of Contents
 
-Welcome to the Introduction section of the **MLOps Zoomcamp 2025** by [Shrikant-Ganji](https://github.com/Shrikant-Ganji/mlops-zoomcamp-2025)!
-
-This module sets the stage for your journey into Machine Learning Operations (MLOps). You’ll get familiar with the course structure, set up your environment, and gain an understanding of what MLOps is and why it matters.
+1. [Introduction to MLOps](#1-introduction-to-mlops)
+2. [Environment Preparation](#2-environment-preparation)
+   - [Using GitHub Codespaces](#21-using-github-codespaces)
+   - [Working Locally or on Cloud VMs](#22-working-locally-or-on-cloud-vms)
+   - [Using Installers (Simpler Option)](#23-using-installers-simpler-option)
+3. [Training a Ride Duration Prediction Model](#3-training-a-ride-duration-prediction-model)
+4. [Course Overview](#4-course-overview)
+5. [MLOps Maturity Model](#5-mlops-maturity-model)
+6. [Homework](#6-homework)
+7. [Additional Resources](#7-additional-resources)
+8. [Contributing](#8-contributing)
 
 ---
 
-## 📌 Objectives
+## 1. Introduction to MLOps
 
-- Understand the goals and structure of the MLOps Zoomcamp
-- Set up your local development environment
-- Introduction to key MLOps concepts and tools
-- Run your first code and notebook examples
+**MLOps** (Machine Learning Operations) is the discipline of streamlining the deployment, monitoring, and management of machine learning models in production environments. This course covers the tools and techniques needed to create robust, scalable ML solutions.
+
+**Example use case:** Predicting the duration of a taxi ride.
+
+Typical ML project lifecycle:
+- **Design:** Assess if ML is necessary or if a simpler solution suffices.
+- **Train:** Build and evaluate an appropriate model.
+- **Operate:** Deploy, monitor, and maintain the model over time.
+
+Deployed models are commonly served as web APIs. Continuous monitoring is crucial to detect data drift and ensure ongoing performance.
 
 ---
 
-## 🗂️ Directory Structure
+## 2. Environment Preparation
 
+### 2.1 Using GitHub Codespaces
+
+1. Log in to GitHub.
+2. Create a new public repository (with a README).
+3. Navigate to `Code` → `Codespaces` → create a codespace on `main`.
+
+**Advantages:** Codespaces come pre-installed with Python, Docker, Docker Compose, and Node.js, simplifying setup.
+
+**Recommendation:** For best experience, use Visual Studio Code Desktop with the Codespaces extension.
+
+#### Install Anaconda:
+
+```sh
+wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+bash Anaconda3-2022.05-Linux-x86_64.sh
 ```
-01-intra/
-│
-├── data/            # Example datasets
-├── notebooks/       # Jupyter notebooks for hands-on practice
-├── scripts/         # Python scripts and utilities
-├── requirements.txt # Python dependencies
-└── README.md        # This file
+
+After installation:
+
+```sh
+python -V
+jupyter
+```
+
+*Tip: Use the PORTS section in VSCode to manage local and remote port mappings.*
+
+---
+
+### 2.2 Working Locally or on Cloud VMs (AWS/GCP/Linux)
+
+#### Step 1: Install Anaconda
+
+```sh
+wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+bash Anaconda3-2022.05-Linux-x86_64.sh
+```
+
+#### Step 2: Update System Packages
+
+```sh
+sudo apt update
+```
+
+#### Step 3: Install Docker and Docker Compose
+
+Follow the [official Docker documentation](https://docs.docker.com/engine/install/ubuntu/) for up-to-date instructions. Example:
+
+```sh
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+To run Docker without `sudo`:
+
+```sh
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
+Test Docker installation:
+
+```sh
+docker run hello-world
+```
+
+*Troubleshooting:*
+- If you receive a permission denied error, try running `sudo dockerd`.
+- For SSH key permission errors: `chmod 400 name-of-your-private-key-file.pem`
+
+---
+
+### 2.3 Using Installers (Simplified)
+
+Install tools with official installers:
+- [Anaconda](https://www.anaconda.com/products/individual)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+Create and activate a conda environment:
+
+```sh
+conda create -n mlops-zoomcamp python=3.9.7
+conda activate mlops-zoomcamp
+```
+
+Install common packages:
+
+```sh
+conda install numpy pandas scikit-learn seaborn jupyter
 ```
 
 ---
 
-## 🛠️ Setup Instructions
+## 3. Training a Ride Duration Prediction Model
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Shrikant-Ganji/mlops-zoomcamp-2025.git
-   cd mlops-zoomcamp-2025/01-intra
-   ```
+The NYC taxi dataset is available in Parquet format. Download with:
 
-2. **Create and activate a virtual environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows use `venv\Scripts\activate`
-   ```
+```sh
+curl -O https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2021-01.parquet
+curl -O https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2021-02.parquet
+```
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+To work with Parquet files, install:
 
-4. **Start exploring notebooks or scripts**
-   - Open the notebooks in Jupyter or VSCode.
-   - Follow along with the exercises and edit as you go.
+```sh
+pip install pyarrow
+```
+
+*Advantages:* Parquet files are compressed and efficient for analytics.
+
+Model training is demonstrated in [this Jupyter notebook](notebooks/duration-prediction.ipynb).
 
 ---
 
-## 📖 Additional Resources
+## 4. Course Overview
+
+While Jupyter notebooks are excellent for exploration, production workflows require structure.
+
+**Recommendations:**
+- Use Markdown cells to document metrics and parameters.
+- Employ experiment tracking tools such as MLflow.
+- Register models in a model registry for version control.
+
+**ML Pipeline stages:**
+1. Data loading and preparation
+2. Feature engineering and vectorization
+3. Model training
+
+Pipelines should be parameterized and automated where possible. Monitor deployed models, and retrain as needed.
+
+---
+
+## 5. MLOps Maturity Model
+
+| Level | Description                                                             |
+|-------|-------------------------------------------------------------------------|
+| **0** | No automation. Experiments in Jupyter, no reproducibility.              |
+| **1** | DevOps practices applied, but no ML-specific tooling.                   |
+| **2** | Automated training, experiment tracking, model registry.                |
+| **3** | Automated deployment, API access, A/B testing, monitoring.              |
+| **4** | Fully automated ML system – training, deployment, monitoring.           |
+
+**Reference:** [Microsoft MLOps Documentation](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/mlops/mlops-maturity-model)
+
+**Key Takeaways:**
+- **Level 0:** Manual experiments, poor reproducibility.
+- **Level 1:** Basic CI/CD, not ML-aware.
+- **Level 2:** Automated training, experiment tracking, model registry.
+- **Level 3:** Automated deployment and monitoring, A/B testing.
+- **Level 4:** Fully automated end-to-end ML lifecycle.
+
+> ⚡️ **Tip:** Start small, iterate, and evolve your MLOps maturity over time.
+
+---
+
+## 6. Homework
+
+Homework for this module is available [here](homework1).
+
+---
+
+## 7. Additional Resources
 
 - [Official MLOps Zoomcamp](https://github.com/DataTalksClub/mlops-zoomcamp)
 - [Python Documentation](https://docs.python.org/3/)
@@ -66,10 +220,12 @@ This module sets the stage for your journey into Machine Learning Operations (ML
 
 ---
 
-## 🤝 Contributing
+## 8. Contributing
 
-Found a typo or want to add content? Feel free to open an issue or submit a pull request!
+Contributions are welcome! If you notice any issues or wish to add content, please open an issue or submit a pull request.
 
 ---
 
-Let me know if you’d like any section added or further customized!
+If you’d like to see additional sections or request further customization, please let me know!
+
+---
