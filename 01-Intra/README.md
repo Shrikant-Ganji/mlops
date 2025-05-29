@@ -60,7 +60,7 @@ After installation:
 
 ```sh
 python -V
-jupyter
+jupyter notebook
 ```
 
 *Tip: Use the PORTS section in VSCode to manage local and remote port mappings.*
@@ -88,7 +88,7 @@ Follow the [official Docker documentation](https://docs.docker.com/engine/instal
 
 ```sh
 sudo apt-get update
-sudo apt-get install ca-certificates curl
+sudo apt-get install ca-certificates curl wget
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -147,8 +147,8 @@ conda install numpy pandas scikit-learn seaborn jupyter
 The NYC taxi dataset is available in Parquet format. Download with:
 
 ```sh
-curl -O https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2021-01.parquet
-curl -O https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2021-02.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2021-01.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2021-02.parquet
 ```
 
 To work with Parquet files, install:
