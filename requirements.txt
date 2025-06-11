@@ -1,0 +1,20 @@
+mlflow
+scikit-learn
+pandas
+numpy
+flask
+evidently
+prefect
+boto3
+pymongo
+python-dotenv
+matplotlib
+jupyter
+pyyaml
+# For monitoring and deployment (optional, depending on your use case)
+prometheus-client
+grafana-api
+# For CI/CD and infrastructure as code (optional/final modules)
+pytest
+pre-commit
+terraform
